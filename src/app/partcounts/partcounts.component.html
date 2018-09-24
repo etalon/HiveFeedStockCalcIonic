@@ -1,5 +1,7 @@
-<div>
-  <div *ngFor="let pc of sumBuilder.partCount">
-    <label>{{pc.part.name}} ({{pc.part.weight}} KG)</label> <input [(ngModel)]="pc.count" placeholder="count" (ngModelChange)="calcFeedStock()">
-  </div>
-</div>
+<ion-list *ngFor="let pc of sumBuilder.partCount">
+  <ion-item text-wrap>
+    <ion-label position="fixed" class="fixedLabel">{{pc.part.name}} ({{pc.part.weight}} KG)</ion-label>
+    <ion-input type="number" placeholder="{{pc.part.name}}" [(ngModel)]="pc.count" placeholder="count" (ngModelChange)="calcFeedStock()"></ion-input>
+    <ion-icon name="remove-circle" (click)='reset(pc)'></ion-icon>
+  </ion-item>
+</ion-list>

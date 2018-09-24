@@ -23,8 +23,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    SumbuilderPage, 
+    SumbuilderPage,
     PartcountsComponent
-  ]
+ ]
 })
 export class SumbuilderPageModule {}

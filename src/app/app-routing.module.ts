@@ -4,20 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'sumbuilder',
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
-  { 
-    path: 'sumbuilder', 
-    loadChildren: './sumbuilder/sumbuilder.module#SumbuilderPageModule' 
+    path: 'sumbuilder',
+    loadChildren: './sumbuilder/sumbuilder.module#SumbuilderPageModule'
   }
 ];
 

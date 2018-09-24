@@ -1,0 +1,14 @@
+label{
+    display: inline-block;
+    clear: left;
+    width: 300px;
+    text-align: right;
+}
+input {
+  display: inline-block;
+}
+
+.fixedLabel {
+  min-width: 30% !important;
+  max-width: 30% !important;
+}

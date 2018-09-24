@@ -1,10 +1,11 @@
-import { SumBuilder } from "../models/sumbuilder";
+import { SumBuilder } from '../models/sumbuilder';
 import { Component, OnInit, Input } from '@angular/core';
+import { PartCount } from '../models/partcount';
 
 @Component({
   selector: 'app-partcounts',
   templateUrl: './partcounts.component.html',
-  styleUrls: ['./partcounts.component.css']
+  styleUrls: ['./partcounts.component.scss']
 })
 
 export class PartcountsComponent implements OnInit {
@@ -13,14 +14,19 @@ export class PartcountsComponent implements OnInit {
 
   constructor() { }
 
-  calcFeedStock(): void{
-
-    this.sumBuilder.calcFeedStock();
-   
-   }
-
   ngOnInit() {
 
   }
+
+  calcFeedStock(): void {
+
+    this.sumBuilder.calcFeedStock();
+
+   }
+
+   reset(partCount: PartCount) {
+     partCount.reset();
+     this.calcFeedStock();
+   }
 
 }

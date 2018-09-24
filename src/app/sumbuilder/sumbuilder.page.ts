@@ -6,7 +6,15 @@ import { SumBuilder } from '../models/sumbuilder';
   templateUrl: './sumbuilder.page.html',
   styleUrls: ['./sumbuilder.page.scss'],
 })
-export class SumbuilderPage implements OnInit {
+
+export class SumbuilderPage  implements OnInit {
+
+  sumBuilder = new SumBuilder;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 
   calcFeedStock(): void {
 
@@ -16,15 +24,22 @@ export class SumbuilderPage implements OnInit {
 
   showPartCount(): void {
 
-    alert("to be done");
+    alert('to be done');
 
   }
 
-  sumBuilder = new SumBuilder;
+  getColor(): String {
+    switch (true) {
+      case (this.sumBuilder.weightFeedStock > 17):
+        return 'success';
+        break;
+      case (this.sumBuilder.weightFeedStock > 15):
+        return 'warning';
+        break;
+      default:
+        return 'danger';
+        break;
+    }
 
-  constructor() { }
-
-  ngOnInit() {
   }
-
 }

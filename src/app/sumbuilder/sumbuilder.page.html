@@ -6,12 +6,20 @@
 
 <ion-content padding>
 
-  <div><label>Weight Left: </label><input [(ngModel)]="sumBuilder.weightLeft" placeholder="weightLeft" (ngModelChange)="calcFeedStock()"> KG</div>
-  <div><label>Weight Right: </label><input [(ngModel)]="sumBuilder.weightRight" placeholder="weightRight" (ngModelChange)="calcFeedStock()"> KG</div>
-  <hr/>
-  <!-- <button (click)="showPartCount()">Komponenten</button> -->
+  <ion-item>
+    <ion-label position="fixed">Weight Left: </ion-label>
+    <ion-input type="number" [(ngModel)]="sumBuilder.weightLeft" placeholder="weightLeft" (ngModelChange)="calcFeedStock()"></ion-input> KG
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Weight Right: </ion-label>
+    <ion-input type="number" [(ngModel)]="sumBuilder.weightRight" placeholder="weightRight" (ngModelChange)="calcFeedStock()"></ion-input> KG
+  </ion-item>
+  <div *ngIf="sumBuilder.weightFeedStock > 0">
+    <ion-badge color="primary" class="rem2">Total Weight: {{sumBuilder.weightRight+sumBuilder.weightLeft}}</ion-badge>
+    <ion-badge color="{{getColor()}}" class="rem2">Feed Stock: {{sumBuilder.weightFeedStock | number:'1.2-2'}} KG</ion-badge>
+  </div>
+  <hr/> 
   <app-partcounts [sumBuilder]="sumBuilder"></app-partcounts>
   <hr/>
-  <div><span>Weight Feed Stock: {{sumBuilder.weightFeedStock | number:'1.2-2'}} KG</span></div>
 
 </ion-content>
